@@ -30,8 +30,8 @@ for(i=0; i<2; i++)
      {
            for(j=0;j<3;j++) 
            {
-                 printf("%d ", disp[i][j]);
-                 if(j==2)
+                 printf("%d ");
+                 if(k==2)
                  {
                        printf("n");
                  }
