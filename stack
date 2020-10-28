@@ -1,0 +1,79 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+    int item;
+    struct node *next;
+};
+struct node* createNode()
+{
+    struct node *p;
+    p=(struct node *)malloc(sizeof(struct node));
+    return(p);
+}
+void push(struct node **s)
+{
+    struct node *n;
+    n=createNode();
+    printf("Enter the value:\n");
+    scanf("%d",&n->item);
+    n->next=NULL;
+    if(*s==NULL)
+        *s=n;
+    else{
+        n->next=*s;
+        *s=n;
+    }
+}
+
+void pop(struct node **s)
+{
+    struct node *n;
+    if(*s== NULL)
+        printf("Linked list is Empty\n");
+    else{
+        n=*s;
+        *s=(*s)->next;
+        printf("Popped Element is (%d)\n",n->item);
+        free(n);
+    }
+
+}
+void display(struct node **s)
+{
+    struct node *n;
+    if(*s== NULL)
+        printf("Linked list is Empty\n");
+    else{
+        n=*s;
+        while (n->next!=NULL)
+        {
+            printf("%d\t",n->item);
+            n=n->next;
+        }
+         printf("%d\n",n->item);
+    }
+}
+int main()
+{
+    int x;
+    struct node *stack;
+//    stack=createNode();
+    stack=NULL;
+    while (1)
+    {
+        printf("\n1:PUSH\t2:POP\t3:DISPLAY\t4:EXIT\n");
+        scanf("%d",&x);
+        switch(x){
+            case 1:push(&stack);
+            break;
+            case 2:pop(&stack);
+                break;
+            case 3:display(&stack);
+                break;
+            case 4:exit(0);
+                break;
+            default:printf("Invalid chosise\n");
+        }
+    }
+}
