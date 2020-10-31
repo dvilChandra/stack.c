@@ -51,7 +51,7 @@ int main() {
    push(3);
    push(5);
    push(9);
-   push(1);
+   push(23);
    push(12);
    push(15);
 
@@ -65,7 +65,7 @@ int main() {
    }
 
    printf("Stack full: %s\n" , isfull()?"true":"false");
-   printf("Stack empty: %s\n" , isempty()?"true":"false");
+   printf("Stack : %s\n" , isempty()?"false":"true");
    
    return 0;
 }
